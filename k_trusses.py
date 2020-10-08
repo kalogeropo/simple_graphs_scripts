@@ -6,12 +6,18 @@ from collections import OrderedDict
 import matplotlib.pyplot as plt
 
 import networkx as nx
-from networkx import core_number, k_core
-
 import operator
 
 # dummy graph to check the functionality
 
+with open('for_ktruss_testing/test.txt') as f:
+    lines = f.readlines()
+
+edges = [line.strip().split() for line in lines]
+# [['a', 'b'], ['a', 'c'], ['b', 'd'], ['c', 'e']]
+
+testgraph = nx.Graph()
+testgraph.add_edges_from(edges)
 
 #debug test
 #zero_deg_node = []
@@ -116,6 +122,7 @@ def k_truss_decomp(g):
     return grouped_list
 
 
+print(k_truss_decomp(testgraph))
 
 
 
